@@ -1,18 +1,21 @@
-# def analyze_records(records):
-#     student_counts = {}
-#     activity_counts = {}
-#     for record in records:
-#         student_counts[record[0]] = student_counts.get(record[0], 0)+1
-#         activity_counts[record[1]] = activity_counts.get(record[1], 0)+1
+def analyze_records(records):
+    student_counts = {}
+    activity_counts = {}
+    for record in records:
+        student_counts[record[0]] = student_counts.get(record[0], 0)+1
+        activity_counts[record[1]] = activity_counts.get(record[1], 0)+1
 
-#     count = 0
-#     most_active = None
-#     for student in student_counts:
-#         if student_counts[student] > count:
-#             count = student_counts[student]
-#             most_active = student
+    count = 0
+    most_active = None
+    for student in student_counts:
+        if student_counts[student] > count:
+            count = student_counts[student]
+            most_active = student
+        if student_counts[student] == count:
+            if int(student[-2:]) < int(most_active[-2:]):
+                most_active = student
 
-#     return student_counts, activity_counts, most_active
+    return student_counts, activity_counts, most_active
 
 
 def count_student_records(records, student_id):
@@ -33,7 +36,7 @@ def track_calls(func):
     return wrapper
 
 @track_calls
-def analyze_records(records):
+def analyze_records_dec(records):
     student_counts = {}
     activity_counts = {}
     for record in records:
@@ -46,6 +49,9 @@ def analyze_records(records):
         if student_counts[student] > count:
             count = student_counts[student]
             most_active = student
+        if student_counts[student] == count:
+            if int(student[-2:]) < int(most_active[-2:]):
+                most_active = student
 
     return student_counts, activity_counts, most_active
 
@@ -61,6 +67,10 @@ records = [
     ("ST01", "Python"),
 ]
 
-print(count_student_records(records, "ST02"))
-student_counts, activity_counts, most_active = analyze_records(records)
-student_counts, activity_counts, most_active = analyze_records(records)
+print(count_student_records(records, "ST01"))
+# student_counts, activity_counts, most_active = analyze_records_dec(records)
+# student_counts, activity_counts, most_active = analyze_records_dec(records)
+# print(student_counts)
+# print(activity_counts)
+# print(most_active)
+
