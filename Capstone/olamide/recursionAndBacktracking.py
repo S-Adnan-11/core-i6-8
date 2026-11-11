@@ -30,6 +30,9 @@ def digital_root(n: int) -> int:
         droot = 9
     return droot
 
+def digital_root(n: int) -> int:
+    return ((n - 1) % 9) + 1
+
 """Write is_palindrome(s) that ignores case and non-alphanumeric characters. Don’t use s[::-1].
 """
 # def is_palindrome(s: str) -> bool:
