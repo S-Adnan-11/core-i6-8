@@ -4,9 +4,18 @@
 without converting it to a string or using loops.
 """
 
+# def digit_sum(n: int) -> int:
+#     if n < 0:
+#         return digit_sum(-n)
+#     if n < 10:
+#         return n
+#     last_digit = n % 10
+#     remaining_digits = n // 10
+#     return last_digit + digit_sum(remaining_digits)
+
 def digit_sum(n: int) -> int:
     if n < 0:
-        return digit_sum(-n)
+        return -1 * digit_sum(-n)
     if n < 10:
         return n
     last_digit = n % 10
@@ -29,6 +38,9 @@ def digital_root(n: int) -> int:
     if not droot:
         droot = 9
     return droot
+
+def digital_root(n: int) -> int:
+    return ((n - 1) % 9) + 1
 
 """Write is_palindrome(s) that ignores case and non-alphanumeric characters. Don’t use s[::-1].
 """
@@ -159,7 +171,7 @@ def letter_case_no_even_upper(s: str, start: int = 0) -> list[str]:
 if __name__ == "__main__":
     # print(digit_sum(0))      # 0
     # print(digit_sum(7))      # 7
-    # print(digit_sum(-1234))   # 10
+    print(digit_sum(-1234))   # 10
     # print(digit_sum(99999))  # 45
     # print(digital_root(56))
     # print(is_palindrome("racecar"))                          # True
@@ -179,7 +191,7 @@ if __name__ == "__main__":
     # print(letter_case("12"))    # ["12"]
     # print(letter_case("3z4"))   # ["3z4", "3Z4"]
     # print(letter_case("a1b2"))  # ["a1b2", "a1B2", "A1b2", "A1B2"]  (order may vary)
-    print(letter_case_no_even_upper("a1b2c3"))
+    # print(letter_case_no_even_upper("a1b2c3"))
 
 
 

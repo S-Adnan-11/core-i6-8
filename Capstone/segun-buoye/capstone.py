@@ -12,7 +12,7 @@ def analyze_records(records):
             count = student_counts[student]
             most_active = student
         if student_counts[student] == count:
-            if int(student[-2:]) < int(most_active[-2:]):
+            if student < most_active:
                 most_active = student
 
     return student_counts, activity_counts, most_active
