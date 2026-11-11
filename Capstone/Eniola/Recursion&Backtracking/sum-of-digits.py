@@ -14,11 +14,16 @@ def digit_sum(n):
 def digital_root(n):
     if n < 10:
         return n
+
+    # If you want to use the digit_sum() above
+    # n = digit_sum(n)
+
+    # If you don't want to use the digit_sum() above
+    n = (n % 10) + (n // 10)
     
-    n = digit_sum(n)
     return digital_root(n)
 
-# print(digital_root(942))
+print(digital_root(942))
 
 def digit_sum2(n):
     n = abs(n)
